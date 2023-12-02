@@ -1,0 +1,18 @@
+<%- include('partials/mainHeader') %>
+
+    <div class="itemDetail">
+        <img src=<%= foodItem.img ? `/data/uploads/${foodItem.img}` : "/images/fruit.jpg"%> alt="foodItem">
+        <div class="detail">
+            <h1>Name : <%= foodItem.name %></h1>
+            <p>Category : <%= foodItem.category.name %></p>
+            <p>Price : <%= foodItem.price %></p>
+            <p>Number in Stock: <%= foodItem.stock %></p>
+            <p class="descp"><%= foodItem.description %></p>
+            <div class="btn-group">
+                <a class='btn' href=<%= `${foodItem.url}/update` %>>Update Food Item</a>
+                <a class='btn' href=<%= `${foodItem.url}/delete` %>>Delete Food Item</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

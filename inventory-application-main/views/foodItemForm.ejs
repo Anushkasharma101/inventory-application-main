@@ -1,0 +1,51 @@
+<%- include('partials/formHeader')%>
+
+    <h1>Create new Food Item</h1>
+    <form class="" action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="text" name="name" id="foodItemName" value="<%= foodItem ? foodItem.name : '' %>" required='true'>
+            <label for="name">Name</label>
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="descp" id="description" value="<%= foodItem ? foodItem.description : '' %>"  required='true'>
+            <label for="descp">Description</label>
+        </div>
+
+        <div class="form-group">
+            <select name="category" id="foodCategory"  required='true'>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category._id %>" <%= category._id.toString() === selected.toString() ? 'selected':'' %>><%= category.name%></option>
+                <% }) %>
+            </select>
+            <label for="category">Choose a Category</label>
+        </div>
+
+        <!-- <div class="form-group">
+            <input type="text" name="nutritions" id="nutritions">
+            <label for="foodItemNutrition">Add Nutritions</label>
+        </div> -->
+
+        <div class="form-group">
+            <input type="number" name="price" id="price" value="<%= foodItem ? foodItem.price : '' %>" required='true'>
+            <label for="price">Price</label>
+        </div>
+
+        <div class="form-group">
+            <input type="number" name="stock" id="stock" value="<%= foodItem ? foodItem.stock : '' %>" required='true'>
+            <label for="stock">Food Items in Stock</label>
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" name="hiddenImage" value= <%= foodItem ? foodItem.img ? foodItem.img : '':'' %>>
+            <input type="file" name="image" id="image">
+            <label for="image">Upload Image</label>
+        </div>
+        <div class="btn-group">
+            <button type="submit">Submit</button>
+            <a class='btn' href="/categories">Cancel</a>
+        </div>
+
+    </form>
+    </body>
+</html>

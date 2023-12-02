@@ -1,0 +1,19 @@
+<%- include('partials/mainHeader') %>
+    <p class="top-center">Manage your pantry efficiently with our inventory app and its easy to use features</p>
+    <h1 class="heading">Food Categories</h1>
+
+    <div class="grid-container">
+        <% categories.forEach(category => { %>
+            <div class="item-card">
+                <img src=<%= category.img ? `/data/uploads/${category.img}` : "/images/fruit.jpg"%> alt="Category">
+                <div class="info">
+                    <h1><%= category.name %></h1>
+                    <p><%= category.description %></p>
+                </div>
+                <a class='btn' href=<%= category.url%>>View Category</a>
+            </div>
+        <% }) %>
+    </div>
+
+</body>
+</html>
